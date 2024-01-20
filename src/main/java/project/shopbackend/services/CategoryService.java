@@ -2,18 +2,20 @@ package project.shopbackend.services;
 
 import project.shopbackend.dtos.CategoryDTO;
 import project.shopbackend.models.Category;
+import project.shopbackend.responses.CategoryResponse;
 
 import java.util.List;
 
 public interface CategoryService {
 
-    Category getCategoryById(Long id);
 
-    List<Category> getAllCategories();
+    CategoryResponse getCategoryById(Long id);
 
-    Category createCategory(CategoryDTO categoryDTO);
+    List<CategoryResponse> getAllCategories();
 
-    Category updateCategoryById(Long id, CategoryDTO categoryDTO);
+    CategoryResponse createCategory(CategoryDTO categoryDTO);
+
+    CategoryResponse updateCategoryById(Long id, CategoryDTO categoryDTO);
 
     void deteleCategoryById(Long id);
 
