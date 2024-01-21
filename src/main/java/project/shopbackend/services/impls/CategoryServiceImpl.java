@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
     private CategoryResponse convert(Category category){
@@ -46,7 +46,6 @@ public class CategoryImpl implements CategoryService {
         if(!categoryRepository.existsByName(categoryDTO.getName())){
             Category category = Category.builder()
                     .name(categoryDTO.getName())
-                    .status(true)
                     .build();
             return convert(categoryRepository.save(category));
         }
@@ -61,7 +60,6 @@ public class CategoryImpl implements CategoryService {
                 return convert(categoryRepository.save(Category.builder()
                         .id(id)
                         .name(categoryDTO.getName())
-                        .status(true)
                         .build()));
             }
             else throw new DataNotFoundException("Category not found");

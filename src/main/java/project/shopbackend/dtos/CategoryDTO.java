@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class CategoryDTO {
     @NotBlank(message = "Category name cannot be blank")
     @Size(max = 255, message = "Category name must be less than or equal to 255 characters")
