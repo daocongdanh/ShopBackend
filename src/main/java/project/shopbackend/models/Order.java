@@ -2,6 +2,7 @@ package project.shopbackend.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import project.shopbackend.enums.OrderStatus;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "orders")
+@Builder
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +43,8 @@ public class Order {
     @Column(name = "order_status", nullable = false)
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

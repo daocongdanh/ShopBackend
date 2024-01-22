@@ -1,7 +1,7 @@
 package project.shopbackend.enums;
 
 public enum OrderStatus {
-    PREPARING,
+    PENDING,
     DELIVERING,
     DELIVERED,
     CANCELLED
