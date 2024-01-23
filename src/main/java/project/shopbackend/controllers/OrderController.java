@@ -17,7 +17,7 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<?> getAllOrdersByUserId(@PathVariable("id") Long id){
         try{
             return ResponseEntity.ok(orderService.getAllOrdersByUserId(id));
