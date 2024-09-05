@@ -32,15 +32,17 @@ public class FileUtil {
         if(isFileValid(file)){
             String uniqueFileName = generateUniqueFileName(file);
             Path uploadDir = Paths.get(uploadDirectory);
+            Path uploadTarget = Paths.get("target/classes/static");
             // Kiểm tra và tạo thư mục nếu nó không tồn tại
             if(!Files.exists(uploadDir)){
                 Files.createDirectories(uploadDir);
             }
             // Đường dẫn đầy đủ đến file
             Path destination = Paths.get(uploadDir.toString(),uniqueFileName);
-
+            Path destination1 = Paths.get(uploadTarget.toString(),uniqueFileName);
             // Sao chép file vào thư mục đích
             Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(file.getInputStream(), destination1, StandardCopyOption.REPLACE_EXISTING);
             return uniqueFileName;
         }
         else throw new FileUploadException("File is too large! Maximum size is 10MB or File must be an image");
